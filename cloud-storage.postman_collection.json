@@ -1,0 +1,1611 @@
+{
+	"info": {
+		"_postman_id": "046f6d02-580a-4a06-871e-3b034071f71a",
+		"name": "cloud-storage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11656950"
+	},
+	"item": [
+		{
+			"name": "Авторизация",
+			"item": [
+				{
+					"name": "Авторизация User 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"token_user1\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user1@test.ru",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Qa1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/authorization",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"authorization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Авторизация User 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"token_user2\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user2@test.ru",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "As2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/authorization",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"authorization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Авторизация без данных",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/authorization",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"authorization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Авторизация некорректные данные",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "adminka",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ad",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/authorization",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"authorization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Авторизация несуществующий пользователь",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "adminka@test.ru",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "adminka",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/authorization",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"authorization"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Регистрация",
+			"item": [
+				{
+					"name": "Регистрация нового пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"token_user3\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user3@test.ru",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "De5",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "User3",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/registration",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Регистрация некорректные данные",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user3@test.ru",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ie5",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "U",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/registration",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"registration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Выход",
+			"item": [
+				{
+					"name": "Выход не авторизованного пользователя",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Выход авторизованного пользователя",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user3}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Загрузка файлов",
+			"item": [
+				{
+					"name": "Загрузка файлов неавторизованным пользователем",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/files",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Загрузка файлов",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files[]",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1eee2420-6efe-4cd0-b50c-75c67a4947a2",
+										"postman-cloud:///1eee2420-6f39-4650-a19b-9c28b6b0c956"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Загрузка файлов некорректные файлы",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files[]",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1eee2427-b677-4240-8441-d64754f2689e",
+										"postman-cloud:///1eee2427-b68f-48e0-8805-83b5c6e87899"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Загрузка файлов без файлов",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/files",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Загрузка файла смешанные файлы",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files[]",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1eee2420-6efe-4cd0-b50c-75c67a4947a2",
+										"postman-cloud:///1eee2427-b677-4240-8441-d64754f2689e",
+										"postman-cloud:///1eee2427-b68f-48e0-8805-83b5c6e87899"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Редактирование файла",
+			"item": [
+				{
+					"name": "Загрузка файла",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"file_id\", pm.response.json()[0].file_id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files[]",
+									"type": "file",
+									"src": "/H:/Новая папка/Стреколовский/Мотов, Стреколовский.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Редактирование имени файла без авторизации",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Редактирование имени файла не владелец",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user2}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Редактирование имени файла без имени",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Редактирование имени файла",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Скачивание файла",
+			"item": [
+				{
+					"name": "Скачивание файла",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Скачивание файла без авторизации",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Скачивание файла к которому нет доступа",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user2}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Скачивание несуществующего файла",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/files/9876543210",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"9876543210"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Удаление файла",
+			"item": [
+				{
+					"name": "Удаление файла без авторизации",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление файла не владелец",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user2}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление файла",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление файла несуществующего",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Добавление прав доступа",
+			"item": [
+				{
+					"name": "Загрузка файла",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"file_id\", pm.response.json()[0].file_id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files[]",
+									"type": "file",
+									"src": "/H:/Новая папка/Стреколовский/Мотов, Стреколовский.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление прав без авторизации",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}/accesses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}",
+								"accesses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление прав не существующему файлу",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}1/accesses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}1",
+								"accesses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление прав не владельцем",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user2}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}/accesses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}",
+								"accesses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление прав некорректные данные",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}/accesses?email=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}",
+								"accesses"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление прав",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user3@test.ru",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}/accesses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}",
+								"accesses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление прав 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user3@test.ru",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}/accesses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}",
+								"accesses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Удаление прав доступа",
+			"item": [
+				{
+					"name": "Загрузка файла",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"file_id\", pm.response.json()[0].file_id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files[]",
+									"type": "file",
+									"src": "/H:/Новая папка/Стреколовский/Мотов, Стреколовский.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление прав без авторизации",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}/accesses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}",
+								"accesses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление прав не существующему файлу",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}1/accesses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}1",
+								"accesses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление прав не владельцем",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user2}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}/accesses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}",
+								"accesses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление прав некорректные данные",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}/accesses?email=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}",
+								"accesses"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление прав",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user1}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "user3@test.ru",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files/{{file_id}}/accesses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"{{file_id}}",
+								"accesses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Просмотр файлов пользователя",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_user1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/files/disk",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"files",
+						"disk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Просмотр файлов как соавтор",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_user2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/files/shared",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"files",
+						"shared"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
